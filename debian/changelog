@@ -1,8 +1,12 @@
-qtimageformats-opensource-src (5.15.8-1+dde) UNRELEASED; urgency=medium
+qtimageformats-opensource-src (5.15.8-2deepin1) unstable; urgency=medium
 
+  [ Lu YaNing ]
   * New upstream release (5.15.8).
 
- -- Lu YaNing <luyaning@uniontech.com>  Mon, 30 Jan 2023 11:17:11 +0800
+  [ Tian ShiLin ]
+  * update CVE-2025-5683
+
+ -- Tian ShiLin <tianshilin@uniontech.com>  Mon, 22 Dec 2025 13:13:52 +0800
 
 qtimageformats-opensource-src (5.15.7-1+dde) unstable; urgency=medium
 

@@ -1,0 +1,28 @@
+Description: Fix validation issue for ICNS image
+ The header validation logic could trigger an assert when an invalid ICNS
+ image was loaded. This patch fixes the validation logic.
+ .
+ Credit to OSS-Fuzz
+ .
+ Backported from Qt6.
+Origin: upstream, https://codereview.qt-project.org/c/qt/qtimageformats/+/638666
+Bug: https://bugreports.qt.io/browse/QTBUG-136707
+Last-Update: 2025-12-22
+
+--- a/src/plugins/imageformats/icns/qicnshandler.cpp
++++ b/src/plugins/imageformats/icns/qicnshandler.cpp
+@@ -359,8 +359,11 @@ static inline bool isPowOf2OrDividesBy16
+ 
+ static inline bool isBlockHeaderValid(const ICNSBlockHeader &header, quint64 bound = 0)
+ {
+-    return header.ostype != 0 && (bound == 0
+-                || qBound(quint64(ICNSBlockHeaderSize), quint64(header.length), bound) == header.length);
++    return header.ostype != 0 &&
++        (bound == 0 ||
++            // qBound can be used but requires checking the limits first
++            // this requires less operations
++            (ICNSBlockHeaderSize <= header.length && header.length <= bound));
+ }
+ 
+ static inline bool isIconCompressed(const ICNSEntry &icon)
+
