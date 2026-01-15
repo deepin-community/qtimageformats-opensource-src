@@ -1,10 +1,11 @@
-qtimageformats-opensource-src (5.15.8-2deepin1) unstable; urgency=medium
+qtimageformats-opensource-src (5.15.8-2deepin2) unstable; urgency=medium
 
   [ Lu YaNing ]
   * New upstream release (5.15.8).
 
   [ Tian ShiLin ]
   * update CVE-2025-5683
+  * update tests
 
  -- Tian ShiLin <tianshilin@uniontech.com>  Mon, 22 Dec 2025 13:13:52 +0800
 
